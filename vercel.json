@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/create-checkout", "destination": "/api/create-checkout" },
+    { "source": "/api/verify-payment", "destination": "/api/verify-payment" }
+  ]
+}
