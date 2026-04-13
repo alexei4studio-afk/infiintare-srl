@@ -1887,11 +1887,33 @@ a {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HERO — CLĂDIRE FIXĂ + SCROLL STORYTELLING
+   HERO — 3D SMOOTH SCROLL
 ═══════════════════════════════════════════════════════════ */
 
-/* 1. FUNDAL & CLĂDIRE */
-.building-container {
+/* 1. SCENE — the 3D viewport */
+.hero-scene {
+  position: relative;
+  z-index: 1;
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+  overflow: hidden;
+}
+
+/* 2. 3D CONTAINER — preserves child depth */
+.hero-3d-container {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 3. LAYERS */
+.hero-layer {
+  position: relative;
+  width: 100%;
+}
+
+/* Building layer — fixed behind content, in 3D depth */
+.hero-layer--building {
   position: fixed;
   top: 0;
   left: 0;
@@ -1903,7 +1925,8 @@ a {
   z-index: 1;
   pointer-events: none;
   background-color: var(--bg);
-  will-change: transform;
+  will-change: transform, opacity;
+  transform: translateZ(0px);
 }
 
 #hero-img {
@@ -1911,18 +1934,25 @@ a {
   object-fit: contain;
   mix-blend-mode: multiply;
   opacity: 0.9;
-  transform: scale(1.1);
   will-change: transform;
-  transform-origin: top center;
+  transform-origin: center center;
+  transform: scale(1) rotateX(0deg) rotateY(0deg);
+  transition: none;
 }
 
-/* 2. SCROLLER */
+/* Content layer — scrolls over building */
+.hero-layer--content {
+  position: relative;
+  z-index: 10;
+}
+
+/* 4. SCROLLER */
 .content-scroller {
   position: relative;
   z-index: 10;
 }
 
-/* Slide-uri mai compacte — flow mai strâns */
+/* 5. SLIDES */
 .hero-slide {
   min-height: 55vh;
   display: flex;
@@ -1932,11 +1962,11 @@ a {
   text-align: center;
   padding: 0 8%;
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(30px) translateZ(0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Primul slide: spațiu extra pentru navbar */
 #slide-1 {
   min-height: 80vh;
   padding-top: 80px;
@@ -1957,10 +1987,10 @@ a {
 
 .hero-slide.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
 }
 
-/* 3. TIPOGRAFIE HERO */
+/* 6. TIPOGRAFIE HERO */
 .hero-slide h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -1969,7 +1999,7 @@ a {
   text-transform: uppercase;
   letter-spacing: -3px;
   color: var(--ink);
-  text-shadow: 0 0 40px var(--bg), 0 0 20px var(--bg);
+  text-shadow: 0 0 60px var(--bg), 0 0 30px var(--bg), 0 0 10px var(--bg);
 }
 
 .gold {
@@ -1989,7 +2019,7 @@ a {
   border: 1px solid var(--border);
 }
 
-/* 4. BUTONUL CTA */
+/* 7. BUTONUL CTA */
 .btn-pill {
   background: var(--ink) !important;
   color: #fff !important;
@@ -2021,17 +2051,19 @@ a {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   5. MOBIL — HERO COMPLET REFĂCUT
+   MOBIL — 3D HERO
 ═══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
-  /* Clădire: mai mică, nu acoperă textul */
+  .hero-scene {
+    perspective: 800px;
+  }
+
   #hero-img {
     height: 65vh;
     opacity: 0.6;
   }
 
-  /* Slide-uri mai scurte pe mobil */
   .hero-slide {
     min-height: 42vh;
     padding: 0 1.2rem;
