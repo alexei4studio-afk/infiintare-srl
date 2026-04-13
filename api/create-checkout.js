@@ -1,8 +1,8 @@
 const https = require('https');
 
-module.exports = async function(req, res) {
+module.exports = async function (req, res) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'https://azisunt.com');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -21,36 +21,51 @@ module.exports = async function(req, res) {
 
   const { amount, tipFirma, numeFirma, email, nume } = req.body;
 
+  // Validate amount
   if (!amount || !['99', '149', '199', '299'].includes(String(amount))) {
     return res.status(400).json({ error: 'Invalid amount' });
   }
+
+  // Validate required fields
   if (!email || !nume) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: 'Invalid email format' });
+  }
+
+  // Sanitize and validate lengths
+  const sanitizedNume = String(nume).trim().substring(0, 100);
+  const sanitizedEmail = String(email).trim().substring(0, 254);
+  const sanitizedNumeFirma = numeFirma ? String(numeFirma).trim().substring(0, 200) : '';
+  const sanitizedTipFirma = tipFirma ? String(tipFirma).trim().substring(0, 10) : 'SRL';
+
   const products = {
     '99': {
-      name: tipFirma === 'PFA'
+      name: sanitizedTipFirma === 'PFA'
         ? 'Dosar Infiintare PFA Digital - 99 RON'
-        : `Dosar Infiintare ${tipFirma || 'SRL'} - 99 RON`,
+        : `Dosar Infiintare ${sanitizedTipFirma} - 99 RON`,
       amount: 9900,
     },
     '149': {
-      name: tipFirma === 'PFA'
+      name: sanitizedTipFirma === 'PFA'
         ? 'Dosar Infiintare PFA - 149 RON'
-        : `Dosar Infiintare ${tipFirma || 'SRL'} Digital - 149 RON`,
+        : `Dosar Infiintare ${sanitizedTipFirma} Digital - 149 RON`,
       amount: 14900,
     },
     '199': {
-      name: tipFirma === 'PFA'
+      name: sanitizedTipFirma === 'PFA'
         ? 'Dosar Infiintare PFA Complet - 199 RON'
-        : `Dosar Infiintare ${tipFirma || 'SRL'} - 199 RON`,
+        : `Dosar Infiintare ${sanitizedTipFirma} - 199 RON`,
       amount: 19900,
     },
     '299': {
-      name: tipFirma === 'PFA'
+      name: sanitizedTipFirma === 'PFA'
         ? 'Dosar Infiintare PFA - 299 RON'
-        : `Dosar Infiintare ${tipFirma || 'SRL'} Complet - 299 RON`,
+        : `Dosar Infiintare ${sanitizedTipFirma} Complet - 299 RON`,
       amount: 29900,
     }
   };
@@ -69,12 +84,12 @@ module.exports = async function(req, res) {
     'line_items[0][price_data][unit_amount]': String(product.amount),
     'line_items[0][quantity]': '1',
     'mode': 'payment',
-    'customer_email': email,
+    'customer_email': sanitizedEmail,
     'success_url': `${baseUrl}/?session_id={CHECKOUT_SESSION_ID}`,
     'cancel_url': `${baseUrl}/#app`,
-    'metadata[tip_firma]': tipFirma || 'SRL',
-    'metadata[nume_firma]': numeFirma || '',
-    'metadata[nume_client]': nume || '',
+    'metadata[tip_firma]': sanitizedTipFirma,
+    'metadata[nume_firma]': sanitizedNumeFirma,
+    'metadata[nume_client]': sanitizedNume,
     'metadata[pachet]': String(amount),
   });
 

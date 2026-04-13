@@ -1,131 +1,533 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cât credit poți lua cu salariul tău în 2026 — Calculator și Ghid | azisunt.com</title>
-    <meta name="description" content="Află cât credit poți lua în 2026 în funcție de salariul net. Calculează suma maximă, compară ofertele băncilor și IFN-urilor din România.">
-    <style>
-        body { font-family: sans-serif; line-height: 1.7; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; }
-        h1 { color: #2c3e50; font-size: 1.9rem; margin-bottom: 10px; }
-        h2 { color: #2c3e50; margin-top: 40px; }
-        p { margin-bottom: 15px; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th { background: #2c3e50; color: white; padding: 10px; text-align: left; }
-        td { padding: 10px; border-bottom: 1px solid #ddd; }
-        tr:nth-child(even) { background: #f9f9f9; }
-        .cta { background: #e67e22; color: white; padding: 20px; text-align: center; border-radius: 8px; text-decoration: none; display: block; margin: 30px 0; font-size: 1.1rem; }
-        .cta:hover { background: #d35400; }
-        .cta-secondary { background: #2980b9; color: white; padding: 15px 25px; border-radius: 8px; text-decoration: none; display: inline-block; margin: 8px 4px; }
-        .oferte { background: #f4f6f9; padding: 25px; border-radius: 10px; margin: 30px 0; }
-        .oferta-item { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px 20px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-        .oferta-item a { background: #2980b9; color: white; padding: 8px 18px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; white-space: nowrap; }
-        .oferta-item a:hover { background: #1a6a9a; }
-        .badge { font-size: 0.75rem; background: #27ae60; color: white; padding: 3px 8px; border-radius: 4px; margin-left: 8px; }
-        .nota { background: #fff8e1; border-left: 4px solid #f39c12; padding: 15px 20px; margin: 20px 0; border-radius: 4px; }
-        ul li { margin-bottom: 8px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cât credit poți lua cu salariul tău în 2026 — Calculator și Ghid | azisunt.com</title>
+  <meta name="description" content="Află cât credit poți lua în 2026 în funcție de salariul net. Calculează suma maximă, compară ofertele băncilor și IFN-urilor din România. Ghid actualizat aprilie 2026.">
+  <meta name="keywords" content="cat credit pot lua, grad indatorare 2026, credit cu salariul, ifn romania, credit rapid 2026">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://azisunt.com/blog/cat-credit-poti-lua-cu-salariul-tau-2026.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cât credit poți lua cu salariul tău în 2026?">
+  <meta property="og:description" content="Calculator și ghid complet: suma maximă de credit în funcție de salariu, gradul de îndatorare și comparație bănci vs IFN.">
+  <meta property="og:url" content="https://azisunt.com/blog/cat-credit-poti-lua-cu-salariul-tau-2026.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Cât credit poți lua cu salariul tău în 2026?","description":"Calculează suma maximă de credit pe care o poți accesa în funcție de salariul net în 2026","author":{"@type":"Organization","name":"StartFIRMĂ","url":"https://azisunt.com"},"publisher":{"@type":"Organization","name":"StartFIRMĂ","url":"https://azisunt.com"},"datePublished":"2026-03-01","dateModified":"2026-04-01"}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+    :root {
+      --bg:#f5f3ef; --bg-w:#fff; --ink:#0d0d0d; --ink2:#3a3a3a;
+      --muted:#888880; --border:#e2dfd8; --gold:#c8a96e;
+      --gold-bg:rgba(200,169,110,.1); --green:#2d6a4f; --green-bg:rgba(45,106,79,.1);
+      --r:4px; --r-lg:10px;
+    }
+    body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+    h1,h2,h3,h4 { font-family:'Playfair Display',serif; line-height:1.1; letter-spacing:-.02em; color:var(--ink); }
+    p { color:var(--ink2); line-height:1.75; }
+    .wrap { max-width:1160px; margin:0 auto; padding:0 1.5rem; }
+
+    /* ── NAVBAR ── */
+    .site-nav { position:fixed; inset:0 0 auto; z-index:200; padding:.9rem 0; background:rgba(245,243,239,.96); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .nav-logo { display:flex; align-items:center; gap:.45rem; font-family:'Playfair Display',serif; font-size:1.35rem; font-weight:900; color:var(--ink); letter-spacing:-.03em; flex-shrink:0; }
+    .nav-logo span { color:var(--gold); }
+    .nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+    .nav-links a { font-size:.8rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:var(--ink2); transition:color .2s; }
+    .nav-links a:hover { color:var(--ink); }
+    .nav-links a.active { color:var(--gold); font-weight:700; }
+    .nav-cta { display:inline-flex; align-items:center; gap:.4rem; background:var(--ink); color:#fff !important; padding:.5rem 1.1rem; border-radius:var(--r); font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; border:2px solid var(--ink); transition:background .2s,color .2s; }
+    .nav-cta:hover { background:transparent !important; color:var(--ink) !important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px; flex-shrink:0; }
+    .hamburger span { display:block; width:22px; height:2px; background:var(--ink); border-radius:2px; }
+    .mob-menu { display:none; position:fixed; inset:0; background:var(--bg); z-index:300; flex-direction:column; align-items:center; justify-content:center; gap:2.2rem; padding:2rem; }
+    .mob-menu.open { display:flex; }
+    .mob-menu a { font-size:1.4rem; font-weight:700; font-family:'Playfair Display',serif; color:var(--ink); }
+    .mob-menu a.active { color:var(--gold); }
+    .mob-close { position:absolute; top:1.2rem; right:1.4rem; background:none; border:none; font-size:2.2rem; cursor:pointer; color:var(--ink); line-height:1; }
+    .mob-cta { background:var(--ink); color:#fff !important; padding:.85rem 2.5rem; border-radius:var(--r); font-size:.9rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-top:.5rem; }
+    @media(max-width:768px){ .nav-links{display:none!important;} .hamburger{display:flex;} }
+
+    /* ── HERO ── */
+    .blog-hero { padding:9rem 0 4.5rem; background:var(--bg); border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+    .blog-hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px); background-size:60px 60px; opacity:.3; pointer-events:none; }
+    .hero-inner { position:relative; z-index:1; max-width:760px; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; font-size:.74rem; color:var(--muted); margin-bottom:1.5rem; flex-wrap:wrap; }
+    .breadcrumb a { color:var(--muted); transition:color .2s; }
+    .breadcrumb a:hover { color:var(--ink); }
+    .breadcrumb svg { width:14px; height:14px; opacity:.4; }
+    .blog-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.2rem; }
+    .blog-meta-item { display:flex; align-items:center; gap:.35rem; font-size:.74rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); }
+    .blog-meta-item svg { width:14px; height:14px; stroke:var(--gold); fill:none; }
+    .blog-hero h1 { font-size:clamp(1.9rem,4.5vw,3.4rem); margin-bottom:1rem; }
+    .blog-hero h1 em { font-style:italic; color:var(--gold); }
+    .blog-hero .lead { font-size:1rem; color:var(--muted); max-width:600px; }
+
+    /* ── LAYOUT ── */
+    .blog-layout { display:grid; grid-template-columns:1fr 290px; gap:4rem; padding:4rem 0 6rem; align-items:start; }
+    @media(max-width:900px){ .blog-layout{grid-template-columns:1fr; gap:3rem;} .blog-sidebar{order:2;} }
+
+    /* ── ARTICLE ── */
+    .article-body { min-width:0; }
+    .article-body h2 { font-size:clamp(1.25rem,2.8vw,1.8rem); margin:2.5rem 0 .8rem; padding-top:2rem; border-top:1px solid var(--border); }
+    .article-body h2:first-of-type { border-top:none; margin-top:0; padding-top:0; }
+    .article-body p { margin-bottom:1.1rem; font-size:.97rem; }
+    .article-body strong { color:var(--ink); }
+    .article-body a { color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
+    .article-body a:hover { color:var(--gold); }
+
+    .doc-list { list-style:none; display:flex; flex-direction:column; gap:.55rem; margin:1rem 0 1.5rem; }
+    .doc-list li { display:flex; align-items:flex-start; gap:.8rem; padding:.85rem 1rem; background:var(--bg-w); border:1px solid var(--border); border-radius:var(--r); font-size:.89rem; color:var(--ink2); line-height:1.55; }
+    .doc-list li::before { content:''; flex-shrink:0; width:6px; height:6px; border-radius:50%; background:var(--gold); margin-top:7px; }
+    .doc-list li strong { color:var(--ink); }
+
+    .data-table { width:100%; border-collapse:collapse; margin:1.2rem 0; font-size:.87rem; border-radius:var(--r); overflow:hidden; border:1px solid var(--border); }
+    .data-table th { background:var(--ink); color:#fff; padding:.7rem .9rem; text-align:left; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-family:'DM Sans',sans-serif; }
+    .data-table td { padding:.7rem .9rem; border-bottom:1px solid var(--border); color:var(--ink2); }
+    .data-table tr:last-child td { border-bottom:none; }
+    .data-table tr:nth-child(even) td { background:rgba(0,0,0,.02); }
+    @media(max-width:600px){ .data-table{font-size:.8rem;} .data-table td,.data-table th{padding:.55rem .6rem;} }
+
+    .warning-box { background:#fffbeb; border:1px solid #fcd34d; border-left:3px solid #f59e0b; border-radius:var(--r); padding:.9rem 1.2rem; margin:1.2rem 0; font-size:.87rem; color:var(--ink2); }
+    .info-box { background:var(--bg-w); border:1px solid var(--border); border-left:3px solid var(--gold); border-radius:var(--r); padding:.9rem 1.2rem; margin:1.2rem 0; }
+    .info-label { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:.3rem; }
+    .info-box p { margin-bottom:0; font-size:.87rem; }
+
+    /* Oferte IFN */
+    .oferte { display:flex; flex-direction:column; gap:1rem; margin:1.5rem 0; }
+    .oferta-card { background:var(--bg-w); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.1rem 1.4rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    @media(max-width:520px){ .oferta-card{flex-direction:column; align-items:flex-start;} }
+    .oferta-info strong { font-size:.95rem; color:var(--ink); display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+    .oferta-badge { font-size:.65rem; font-weight:700; padding:.2rem .55rem; border-radius:4px; display:inline-block; }
+    .badge-green { background:var(--green); color:#fff; }
+    .badge-orange { background:#d97706; color:#fff; }
+    .badge-purple { background:#7c3aed; color:#fff; }
+    .oferta-info small { display:block; font-size:.8rem; color:var(--muted); margin-top:.2rem; }
+    .oferta-btn { display:inline-flex; align-items:center; gap:.35rem; background:var(--ink); color:#fff; padding:.55rem 1rem; border-radius:var(--r); font-size:.78rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; border:2px solid var(--ink); transition:background .2s,color .2s; white-space:nowrap; }
+    .oferta-btn:hover { background:transparent; color:var(--ink); }
+
+    .step-p { margin-bottom:.8rem; font-size:.97rem; }
+
+    .cta-block { background:var(--ink); border-radius:var(--r-lg); padding:2rem 1.8rem; text-align:center; margin:2.5rem 0; }
+    .cta-block h3 { color:#fff; font-size:1.4rem; margin-bottom:.4rem; }
+    .cta-block p { color:rgba(255,255,255,.55); font-size:.88rem; margin-bottom:1.1rem; }
+    .cta-block .btn { display:inline-flex; align-items:center; gap:.4rem; background:var(--gold); color:var(--ink); padding:.85rem 2rem; border-radius:var(--r); font-size:.85rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; border:2px solid var(--gold); transition:background .2s,color .2s; }
+    .cta-block .btn:hover { background:transparent; color:var(--gold); }
+
+    .disclaimer { background:var(--bg-w); border:1px solid var(--border); border-radius:var(--r); padding:.9rem 1.2rem; margin:2rem 0; font-size:.83rem; color:var(--muted); font-style:italic; }
+
+    .share-row { display:flex; align-items:center; gap:.8rem; flex-wrap:wrap; padding:1.5rem 0; border-top:1px solid var(--border); margin-top:2rem; }
+    .share-label { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+    .share-btn { display:inline-flex; align-items:center; gap:.35rem; padding:.4rem .85rem; border:1px solid var(--border); border-radius:100px; font-size:.74rem; font-weight:600; color:var(--ink2); background:var(--bg-w); transition:all .2s; }
+    .share-btn:hover { border-color:var(--ink); color:var(--ink); }
+    .share-btn svg { width:14px; height:14px; fill:currentColor; }
+
+    /* ── SIDEBAR ── */
+    .blog-sidebar { position:sticky; top:90px; }
+    @media(max-width:900px){ .blog-sidebar{position:static;} }
+    .sidebar-card { background:var(--bg-w); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.2rem; margin-bottom:1.1rem; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .sidebar-label { font-size:.64rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:.9rem; display:flex; align-items:center; gap:.35rem; }
+    .sidebar-label svg { width:14px; height:14px; fill:var(--gold); }
+    .toc { list-style:none; display:flex; flex-direction:column; }
+    .toc li a { display:flex; align-items:center; gap:.45rem; font-size:.8rem; color:var(--ink2); padding:.28rem 0; border-bottom:1px solid var(--border); transition:color .2s; }
+    .toc li:last-child a { border-bottom:none; }
+    .toc li a::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+    .toc li a:hover { color:var(--ink); }
+    .promo-card { background:var(--ink)!important; border-color:var(--ink)!important; }
+    .promo-card .sidebar-label { color:var(--gold); }
+    .promo-card h4 { color:#fff; font-size:.95rem; margin-bottom:.4rem; }
+    .promo-card p { color:rgba(255,255,255,.5); font-size:.8rem; margin-bottom:.9rem; }
+    .promo-card .btn { display:flex; align-items:center; justify-content:center; gap:.4rem; background:var(--gold); color:var(--ink); padding:.65rem 1rem; border-radius:var(--r); font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; border:2px solid var(--gold); transition:background .2s,color .2s; }
+    .promo-card .btn:hover { background:transparent; color:var(--gold); }
+    .related-item { display:flex; gap:.65rem; align-items:flex-start; padding:.55rem 0; border-bottom:1px solid var(--border); }
+    .related-item:last-child { border-bottom:none; padding-bottom:0; }
+    .related-icon { width:30px; height:30px; flex-shrink:0; background:var(--bg); border:1px solid var(--border); border-radius:var(--r); display:flex; align-items:center; justify-content:center; }
+    .related-icon svg { width:14px; height:14px; fill:var(--muted); }
+    .related-item a { font-size:.79rem; font-weight:600; color:var(--ink2); line-height:1.4; }
+    .related-item a:hover { color:var(--ink); }
+
+    /* ── FOOTER ── */
+    .site-footer { background:var(--ink); color:rgba(255,255,255,.7); padding:4rem 0 0; }
+    .footer-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,.08); }
+    @media(max-width:680px){ .footer-grid{grid-template-columns:1fr; gap:2rem;} }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:900; color:#fff; letter-spacing:-.03em; margin-bottom:.7rem; }
+    .footer-logo span { color:var(--gold); }
+    .footer-desc { font-size:.84rem; color:rgba(255,255,255,.45); line-height:1.65; max-width:260px; }
+    .footer-socials { display:flex; gap:.7rem; margin-top:1.1rem; }
+    .footer-socials a { width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.45); transition:border-color .2s,color .2s; }
+    .footer-socials a:hover { border-color:var(--gold); color:var(--gold); }
+    .footer-socials svg { width:17px; height:17px; fill:currentColor; }
+    .footer-col h4 { font-size:.65rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:.9rem; font-family:'DM Sans',sans-serif; }
+    .footer-col a { display:block; font-size:.83rem; color:rgba(255,255,255,.5); margin-bottom:.5rem; transition:color .2s; }
+    .footer-col a:hover { color:#fff; }
+    .footer-bottom { padding:1.2rem 0; font-size:.75rem; color:rgba(255,255,255,.22); text-align:center; }
+
+    /* ── CHATBOT ── */
+    #chatbot-widget { position:fixed; bottom:1.5rem; right:1.5rem; z-index:999; }
+    #chatbot-toggle { width:52px; height:52px; border-radius:50%; background:var(--ink); color:#fff; border:none; cursor:pointer; font-size:1.3rem; display:flex; align-items:center; justify-content:center; box-shadow:0 12px 48px rgba(0,0,0,.22); transition:transform .2s; position:relative; }
+    #chatbot-toggle:hover { transform:scale(1.06); }
+    .chat-badge { position:absolute; top:-4px; right:-4px; width:18px; height:18px; background:var(--gold); color:var(--ink); font-size:.65rem; font-weight:700; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .chatbot-window { position:absolute; bottom:65px; right:0; width:320px; background:var(--bg-w); border:1px solid var(--border); border-radius:var(--r-lg); box-shadow:0 12px 48px rgba(0,0,0,.15); display:flex; flex-direction:column; overflow:hidden; max-height:500px; }
+    .chatbot-header { display:flex; align-items:center; gap:.8rem; padding:1rem 1.2rem; background:var(--ink); color:#fff; }
+    .chatbot-avatar { width:34px; height:34px; background:rgba(255,255,255,.1); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .chatbot-name { font-size:.88rem; font-weight:600; }
+    .chatbot-status { font-size:.72rem; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:.3rem; }
+    .online-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; display:inline-block; }
+    .chatbot-close { margin-left:auto; background:none; border:none; color:rgba(255,255,255,.5); cursor:pointer; font-size:1.1rem; }
+    .chatbot-messages { flex:1; overflow-y:auto; padding:1rem; display:flex; flex-direction:column; gap:.8rem; }
+    .chat-msg.bot .chat-bubble { background:var(--bg); border:1px solid var(--border); border-radius:var(--r-lg); padding:.7rem 1rem; font-size:.84rem; color:var(--ink2); max-width:85%; }
+    .chatbot-suggestions { display:flex; flex-wrap:wrap; gap:.4rem; padding:.8rem 1rem; border-top:1px solid var(--border); }
+    .chatbot-suggestions button { font-size:.72rem; padding:.35rem .7rem; border:1px solid var(--border); border-radius:100px; background:var(--bg); color:var(--ink2); cursor:pointer; transition:all .2s; font-family:'DM Sans',sans-serif; }
+    .chatbot-suggestions button:hover { border-color:var(--ink); color:var(--ink); }
+    .chatbot-input-row { display:flex; border-top:1px solid var(--border); }
+    .chatbot-input-row input { flex:1; border:none; outline:none; padding:.85rem 1rem; font-size:.88rem; background:var(--bg-w); font-family:'DM Sans',sans-serif; color:var(--ink); }
+    .chatbot-input-row button { padding:0 1rem; background:var(--ink); color:#fff; border:none; cursor:pointer; font-size:1rem; transition:opacity .2s; }
+    .chatbot-input-row button:hover { opacity:.8; }
+    @media(max-width:500px){ .chatbot-window{width:calc(100vw - 3rem);} }
+  </style>
 </head>
 <body>
 
-    <p><a href="/">← azisunt.com</a></p>
-
-    <h1>Cât credit poți lua cu salariul tău în 2026?</h1>
-    <p><em>Actualizat: martie 2026 · Timp de citire: 4 minute</em></p>
-
-    <p>Înainte să aplici pentru un credit, cea mai importantă întrebare este: <strong>cât pot împrumuta în funcție de venitul meu?</strong> Răspunsul depinde de câțiva factori pe care orice bancă sau IFN îi verifică înainte de aprobare.</p>
-
-    <h2>Regula de bază: gradul de îndatorare</h2>
-    <p>Băncile din România aplică un <strong>grad maxim de îndatorare de 40%</strong> din venitul net lunar. Asta înseamnă că suma tuturor ratelor tale lunare (inclusiv creditul nou) nu poate depăși 40% din salariu.</p>
-
-    <table>
-        <tr>
-            <th>Salariu net lunar</th>
-            <th>Rată maximă admisă</th>
-            <th>Credit estimat (60 luni)</th>
-        </tr>
-        <tr><td>2.000 lei</td><td>800 lei/lună</td><td>~40.000 lei</td></tr>
-        <tr><td>3.000 lei</td><td>1.200 lei/lună</td><td>~60.000 lei</td></tr>
-        <tr><td>4.000 lei</td><td>1.600 lei/lună</td><td>~80.000 lei</td></tr>
-        <tr><td>5.000 lei</td><td>2.000 lei/lună</td><td>~100.000 lei</td></tr>
-        <tr><td>7.000 lei</td><td>2.800 lei/lună</td><td>~140.000 lei</td></tr>
-    </table>
-
-    <p class="nota">⚠️ Valorile sunt estimative, la o dobândă anuală de ~8%. Suma exactă variază în funcție de bancă, istoricul de credit și produsul ales.</p>
-
-    <a href="https://azisunt.biz" class="cta">
-        🧮 Calculează suma ta exactă pe azisunt.biz →
-    </a>
-
-    <h2>Ai nevoie urgent de bani? IFN-urile — alternativa rapidă</h2>
-    <p>Dacă nu îndeplinești condițiile băncilor clasice sau ai nevoie de bani în câteva ore, IFN-urile sunt o opțiune viabilă. Procesul este 100% online, fără garanții, fără codebitori.</p>
-
-    <div class="oferte">
-        <h3 style="margin-top:0;">Oferte disponibile acum</h3>
-
-        <div class="oferta-item">
-            <div>
-                <strong>MaiMaiCredit</strong>
-                <span class="badge">200 – 15.000 lei</span><br>
-                <small>Aprobare în 15 minute · Fără garanții · Inclusiv istoric negativ</small>
-            </div>
-            <a href="https://l.profitshare.ro/l/15467995" target="_blank" rel="nofollow">Aplică acum →</a>
-        </div>
-
-        <div class="oferta-item">
-            <div>
-                <strong>Credit Prime</strong>
-                <span class="badge" style="background:#e67e22;">0% dobândă 30 zile</span><br>
-                <small>Ideal pentru nevoi pe termen scurt · Clienți noi</small>
-            </div>
-            <a href="https://l.profitshare.ro/l/15470411" target="_blank" rel="nofollow">Vezi oferta →</a>
-        </div>
-
-        <div class="oferta-item">
-            <div>
-                <strong>AXI Card</strong>
-                <span class="badge" style="background:#8e44ad;">Linie de credit</span><br>
-                <small>Folosești doar ce ai nevoie · Flexibil</small>
-            </div>
-            <a href="https://l.profitshare.ro/l/15470408" target="_blank" rel="nofollow">Detalii →</a>
-        </div>
+  <!-- NAVBAR -->
+  <nav class="site-nav" aria-label="Navigare principală">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="StartFIRMĂ - Acasă">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0">
+          <path d="M12 2C12 2 7 7 7 13C7 16.31 9.24 19.08 12 19.93C14.76 19.08 17 16.31 17 13C17 7 12 2 12 2Z" fill="#c8a96e"/>
+          <path d="M12 8C12 8 9.5 11 9.5 14C9.5 15.93 10.57 17.61 12 18.27C13.43 17.61 14.5 15.93 14.5 14C14.5 11 12 8 12 8Z" fill="#f5f3ef"/>
+        </svg>
+        Start<span>FIRMĂ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#avantaje">Avantaje</a></li>
+        <li><a href="../index.html#pasi">Cum funcționează</a></li>
+        <li><a href="index.html" class="active">Blog</a></li>
+        <li><a href="../index.html#app" class="nav-cta">Generează Dosar ↗</a></li>
+      </ul>
+      <button class="hamburger" onclick="openMob()" aria-label="Deschide meniu" id="hamBtn">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <h2>Ce factori influențează suma aprobată?</h2>
-    <ul>
-        <li><strong>Venitul net lunar</strong> — baza calculului pentru orice instituție</li>
-        <li><strong>Istoricul de credit (Biroul de Credit)</strong> — ratele întârziate reduc șansele</li>
-        <li><strong>Vechimea la locul de muncă</strong> — minim 3-6 luni la actualul angajator</li>
-        <li><strong>Alte credite active</strong> — reduc gradul de îndatorare disponibil</li>
-        <li><strong>Tipul de venit</strong> — salariu, PFA, pensie — fiecare e evaluat diferit</li>
-    </ul>
+  <!-- MOBILE MENU -->
+  <div class="mob-menu" id="mobMenu" role="dialog" aria-modal="true">
+    <button class="mob-close" onclick="closeMob()" aria-label="Închide">×</button>
+    <a href="../index.html#avantaje" onclick="closeMob()">Avantaje</a>
+    <a href="../index.html#pasi" onclick="closeMob()">Cum funcționează</a>
+    <a href="index.html" class="active" onclick="closeMob()">Blog</a>
+    <a href="../index.html#app" class="mob-cta" onclick="closeMob()">Generează Dosar ↗</a>
+  </div>
 
-    <h2>Bancă sau IFN — ce alegi?</h2>
-    <table>
-        <tr>
-            <th></th>
-            <th>Bancă clasică</th>
-            <th>IFN</th>
-        </tr>
-        <tr><td>Dobândă</td><td>7–12% DAE</td><td>60–200%+ DAE</td></tr>
-        <tr><td>Sumă maximă</td><td>Până la 150.000+ lei</td><td>200 – 15.000 lei</td></tr>
-        <tr><td>Timp aprobare</td><td>1–5 zile</td><td>15 minute – 24h</td></tr>
-        <tr><td>Condiții</td><td>Stricte</td><td>Flexibile</td></tr>
-        <tr><td>Potrivit pentru</td><td>Sume mari, planificate</td><td>Urgențe, sume mici</td></tr>
-    </table>
+  <!-- HERO -->
+  <section class="blog-hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">StartFIRMĂ</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <a href="index.html">Blog</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <span>Credit după salariu 2026</span>
+        </nav>
+        <div class="blog-meta">
+          <span class="blog-meta-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Martie 2026
+          </span>
+          <span class="blog-meta-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            4 min citire
+          </span>
+          <span class="blog-meta-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            Finanțare
+          </span>
+        </div>
+        <h1>Cât credit poți lua cu <em>salariul tău</em> în 2026?</h1>
+        <p class="lead">Înainte să aplici pentru un credit, cea mai importantă întrebare este: cât pot împrumuta în funcție de venitul meu? Răspunsul depinde de câțiva factori pe care orice bancă sau IFN îi verifică înainte de aprobare.</p>
+      </div>
+    </div>
+  </section>
 
-    <h2>Cum calculezi suma maximă în 3 pași</h2>
-    <p><strong>Pasul 1:</strong> Intri pe <a href="https://azisunt.biz">azisunt.biz</a> și introduci venitul net lunar.</p>
-    <p><strong>Pasul 2:</strong> Calculatorul îți arată instant suma maximă pe care o poți accesa.</p>
-    <p><strong>Pasul 3:</strong> Compari ofertele băncilor și IFN-urilor și alegi cea mai potrivită.</p>
+  <!-- CONTENT -->
+  <div class="wrap">
+    <div class="blog-layout">
 
-    <a href="https://azisunt.biz" class="cta">
-        Calculează acum suma maximă — gratuit, în 30 secunde →
-    </a>
+      <article class="article-body">
 
-    <p style="margin-top: 50px; font-size: 0.85rem; color: #888;">Articol informativ. Nu constituie consultanță financiară. Cifrele sunt orientative. Verifică condițiile exacte direct cu instituția de credit aleasă.</p>
+        <h2 id="regula-baza">Regula de bază: gradul de îndatorare</h2>
+        <p>Băncile din România aplică un <strong>grad maxim de îndatorare de 40%</strong> din venitul net lunar. Asta înseamnă că suma tuturor ratelor tale lunare (inclusiv creditul nou) nu poate depăși 40% din salariu.</p>
 
-    <p><a href="/">← Înapoi la azisunt.com</a></p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Salariu net lunar</th><th>Rată maximă admisă</th><th>Credit estimat (60 luni)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2.000 lei</td><td><strong>800 lei/lună</strong></td><td>~40.000 lei</td></tr>
+            <tr><td>3.000 lei</td><td><strong>1.200 lei/lună</strong></td><td>~60.000 lei</td></tr>
+            <tr><td>4.000 lei</td><td><strong>1.600 lei/lună</strong></td><td>~80.000 lei</td></tr>
+            <tr><td>5.000 lei</td><td><strong>2.000 lei/lună</strong></td><td>~100.000 lei</td></tr>
+            <tr><td>7.000 lei</td><td><strong>2.800 lei/lună</strong></td><td>~140.000 lei</td></tr>
+          </tbody>
+        </table>
 
+        <div class="warning-box">
+          ⚠️ <strong>Notă:</strong> Valorile sunt estimative, la o dobândă anuală de ~8%. Suma exactă variază în funcție de bancă, istoricul de credit și produsul ales.
+        </div>
+
+        <h2 id="factori">Ce factori influențează suma aprobată?</h2>
+        <ul class="doc-list">
+          <li><strong>Venitul net lunar</strong> — baza calculului pentru orice instituție financiară</li>
+          <li><strong>Istoricul de credit (Biroul de Credit)</strong> — ratele întârziate reduc semnificativ șansele de aprobare</li>
+          <li><strong>Vechimea la locul de muncă</strong> — minim 3-6 luni la actualul angajator, preferabil 12+ luni</li>
+          <li><strong>Alte credite active</strong> — reduc gradul de îndatorare disponibil</li>
+          <li><strong>Tipul de venit</strong> — salariu, PFA, pensie — fiecare e evaluat diferit de bănci</li>
+        </ul>
+
+        <h2 id="ifn">Ai nevoie urgent de bani? IFN-urile — alternativa rapidă</h2>
+        <p>Dacă nu îndeplinești condițiile băncilor clasice sau ai nevoie de bani în câteva ore, IFN-urile sunt o opțiune viabilă. Procesul este 100% online, fără garanții, fără codebitori.</p>
+
+        <div class="oferte">
+          <div class="oferta-card">
+            <div class="oferta-info">
+              <strong>MaiMaiCredit <span class="oferta-badge badge-green">200 – 15.000 lei</span></strong>
+              <small>Aprobare în 15 minute · Fără garanții · Inclusiv istoric negativ</small>
+            </div>
+            <a href="https://l.profitshare.ro/l/15467995" target="_blank" rel="nofollow noopener" class="oferta-btn">Aplică acum ↗</a>
+          </div>
+          <div class="oferta-card">
+            <div class="oferta-info">
+              <strong>Credit Prime <span class="oferta-badge badge-orange">0% dobândă 30 zile</span></strong>
+              <small>Ideal pentru nevoi pe termen scurt · Clienți noi</small>
+            </div>
+            <a href="https://l.profitshare.ro/l/15470411" target="_blank" rel="nofollow noopener" class="oferta-btn">Vezi oferta ↗</a>
+          </div>
+          <div class="oferta-card">
+            <div class="oferta-info">
+              <strong>AXI Card <span class="oferta-badge badge-purple">Linie de credit</span></strong>
+              <small>Folosești doar ce ai nevoie · Rambursare flexibilă</small>
+            </div>
+            <a href="https://l.profitshare.ro/l/15470408" target="_blank" rel="nofollow noopener" class="oferta-btn">Detalii ↗</a>
+          </div>
+        </div>
+
+        <h2 id="banca-vs-ifn">Bancă sau IFN — comparație completă</h2>
+
+        <table class="data-table">
+          <thead>
+            <tr><th></th><th>Bancă clasică</th><th>IFN</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Dobândă</strong></td><td>7–12% DAE</td><td>60–200%+ DAE</td></tr>
+            <tr><td><strong>Sumă maximă</strong></td><td>Până la 150.000+ lei</td><td>200 – 15.000 lei</td></tr>
+            <tr><td><strong>Timp aprobare</strong></td><td>1–5 zile</td><td>15 minute – 24h</td></tr>
+            <tr><td><strong>Condiții</strong></td><td>Stricte (dosar complet)</td><td>Flexibile (online)</td></tr>
+            <tr><td><strong>Potrivit pentru</strong></td><td>Sume mari, planificate</td><td>Urgențe, sume mici</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="pasi">Cum calculezi suma maximă în 3 pași</h2>
+        <p class="step-p"><strong>Pasul 1:</strong> Calculează 40% din salariul tău net lunar — aceasta este rata maximă admisă.</p>
+        <p class="step-p"><strong>Pasul 2:</strong> Din aceasta scade ratele la creditele existente (dacă ai). Diferența = rata disponibilă pentru noul credit.</p>
+        <p class="step-p"><strong>Pasul 3:</strong> Compară ofertele băncilor și IFN-urilor și alegi produsul cu rata lunară în bugetul tău.</p>
+
+        <div class="cta-block">
+          <h3>Gândești să îți deschizi o firmă?</h3>
+          <p>Generează dosarul complet SRL sau PFA în 5 minute, 100% online. Valid juridic, gata de depus la ONRC.</p>
+          <a href="../index.html#app" class="btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Generează Dosar ↗
+          </a>
+        </div>
+
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> Articol cu scop informativ. Nu constituie consultanță financiară. Cifrele sunt orientative. Verificați condițiile exacte direct cu instituția de credit aleasă.
+        </div>
+
+        <div class="share-row">
+          <span class="share-label">Distribuie</span>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://azisunt.com/blog/cat-credit-poti-lua-cu-salariul-tau-2026.html" target="_blank" rel="noopener" class="share-btn">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://wa.me/?text=Cat%20credit%20poti%20lua%20in%202026%3A%20https%3A%2F%2Fazisunt.com%2Fblog%2Fcat-credit-poti-lua-cu-salariul-tau-2026.html" target="_blank" rel="noopener" class="share-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-label">
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+            Cuprins
+          </div>
+          <ul class="toc">
+            <li><a href="#regula-baza">1. Regula de bază</a></li>
+            <li><a href="#factori">2. Factori care influențează</a></li>
+            <li><a href="#ifn">3. IFN-urile — alternativa rapidă</a></li>
+            <li><a href="#banca-vs-ifn">4. Bancă sau IFN?</a></li>
+            <li><a href="#pasi">5. Cum calculezi suma</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card promo-card">
+          <div class="sidebar-label">
+            <svg viewBox="0 0 20 20"><path d="M13.5 3.5L17 7l-1.5 1.5L12 5l1.5-1.5zM6 11l5.5-5.5 3.5 3.5L9.5 14.5 6 11zm-3 7l1.5-4.5L7.5 17 4 18z"/></svg>
+            StartFIRMĂ
+          </div>
+          <h4>Deschide o firmă în 5 minute</h4>
+          <p>Dosar SRL sau PFA generat automat. Valid juridic, gata de depus la ONRC.</p>
+          <a href="../index.html#app" class="btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Generează acum ↗
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-label">
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"/><path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"/></svg>
+            Articole similare
+          </div>
+          <div class="related-item">
+            <div class="related-icon">
+              <svg viewBox="0 0 20 20"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>
+            </div>
+            <a href="acte-necesare-srl-2026.html">Acte necesare înființare SRL 2026 — Ghid complet</a>
+          </div>
+          <div class="related-item">
+            <div class="related-icon">
+              <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+            </div>
+            <a href="index.html">Toate ghidurile StartFIRMĂ →</a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Start<span>FIRMĂ</span></div>
+          <p class="footer-desc">Automatizăm procesul de înființare a companiilor noi. Simplu, digital, transparent.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=100070906008433" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="https://wa.me/40733874143" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigare</h4>
+          <a href="index.html">Blog</a>
+          <a href="../index.html#avantaje">Avantaje</a>
+          <a href="../index.html#produse">Pachete &amp; Prețuri</a>
+          <a href="../index.html#app">Generator Dosar</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal &amp; Suport</h4>
+          <a href="../termeni.html">Termeni și Condiții</a>
+          <a href="../gdpr.html">Politica GDPR</a>
+          <a href="https://wa.me/40733874143" target="_blank" rel="noopener">WhatsApp: +40 733 874 143</a>
+          <a href="https://www.facebook.com/profile.php?id=100070906008433" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 StartFIRMĂ — Toate drepturile rezervate. Datele introduse sunt folosite exclusiv pentru generarea documentelor, conform GDPR.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <div id="chatbot-widget">
+    <button id="chatbot-toggle" onclick="toggleChat()" aria-label="Deschide chat">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="chat-icon-open"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" id="chat-icon-close" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <span class="chat-badge" id="chat-notif">1</span>
+    </button>
+    <div id="chatbot-window" class="chatbot-window" style="display:none;">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <div><div class="chatbot-name">StartBot</div><div class="chatbot-status"><span class="online-dot"></span> Online acum</div></div>
+        <button class="chatbot-close" onclick="toggleChat()">×</button>
+      </div>
+      <div class="chatbot-messages" id="chat-messages">
+        <div class="chat-msg bot"><div class="chat-bubble">Bună! 👋 Sunt <strong>StartBot</strong>.<br>Cu ce te pot ajuta?</div></div>
+      </div>
+      <div class="chatbot-suggestions" id="chat-suggestions">
+        <button onclick="window.open('https://wa.me/40733874143','_blank')">💬 WhatsApp</button>
+        <button onclick="sendQuickReply('Cât costă înființarea unui SRL?')">💰 Cât costă?</button>
+        <button onclick="sendQuickReply('Cât durează?')">⏱ Durată?</button>
+        <button onclick="sendQuickReply('Ce acte sunt necesare?')">📄 Acte?</button>
+        <button onclick="sendQuickReply('Transport prin curier?')">🚚 Curier?</button>
+      </div>
+      <div class="chatbot-input-row">
+        <label for="chat-input" style="display:none">Mesaj</label>
+        <input type="text" id="chat-input" placeholder="Scrie o întrebare..." onkeydown="if(event.key==='Enter')sendChatMessage()">
+        <button onclick="sendChatMessage()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openMob(){document.getElementById('mobMenu').classList.add('open');document.body.style.overflow='hidden';}
+    function closeMob(){document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow='';}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob();});
+
+    window.toggleChat=function(){
+      const win=document.getElementById('chatbot-window');
+      const o=document.getElementById('chat-icon-open');
+      const c=document.getElementById('chat-icon-close');
+      const n=document.getElementById('chat-notif');
+      const hidden=win.style.display==='none';
+      win.style.display=hidden?'flex':'none';
+      o.style.display=hidden?'none':'block';
+      c.style.display=hidden?'block':'none';
+      if(hidden&&n)n.style.display='none';
+    };
+    window.sendQuickReply=function(t){
+      const s=document.querySelector('.chatbot-suggestions');
+      if(s)s.style.display='none';
+      appendMsg('user',t);
+      setTimeout(()=>appendMsg('bot',getBotReply(t)),700);
+    };
+    window.sendChatMessage=function(){
+      const inp=document.getElementById('chat-input');
+      const t=inp.value.trim(); if(!t)return;
+      inp.value=''; appendMsg('user',t);
+      setTimeout(()=>appendMsg('bot',getBotReply(t)),700);
+    };
+    function appendMsg(role,text){
+      const msgs=document.getElementById('chat-messages');
+      const d=document.createElement('div'); d.className='chat-msg '+role;
+      const b=document.createElement('div'); b.className='chat-bubble';
+      b.innerHTML=text;
+      if(role==='user'){b.style.cssText='background:var(--ink);color:#fff;border-radius:var(--r-lg);padding:.7rem 1rem;font-size:.84rem;margin-left:auto;max-width:85%;';}
+      d.appendChild(b); msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
+    }
+    function getBotReply(t){
+      t=t.toLowerCase();
+      if(t.includes('cost')||t.includes('preț')||t.includes('ron'))return'SRL Digital: <strong>149 RON</strong>, SRL Complet: <strong>299 RON</strong>. PFA Digital: <strong>99 RON</strong>.';
+      if(t.includes('dureaz')||t.includes('timp'))return'Dosarul se generează în <strong>5 minute</strong>. Înregistrarea la ONRC durează 3–7 zile lucrătoare.';
+      if(t.includes('acte')||t.includes('documente'))return'Act Constitutiv, Declarații asociați/administratori și Contract de Comodat. Toate generate automat cu StartFIRMĂ!';
+      if(t.includes('curier'))return'Da! La pachetele Complete (<strong>199/299 RON</strong>) trimitem dosarul fizic prin curier (~20 RON, plată la livrare).';
+      return'Vă mulțumesc pentru întrebare! Vă pot ajuta pe <a href="https://wa.me/40733874143" target="_blank" style="color:var(--gold)">WhatsApp: 0733 874 143</a> 😊';
+    }
+  </script>
+  <script src="../script.js" defer></script>
 </body>
 </html>
