@@ -1929,6 +1929,19 @@ a {
   transform: translateZ(0px);
 }
 
+.hero-layer--building::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%) scaleX(1);
+  width: 40%;
+  height: 30px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  will-change: transform;
+}
+
 #hero-img {
   height: 100vh;
   object-fit: contain;

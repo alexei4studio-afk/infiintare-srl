@@ -236,6 +236,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 buildingContainerEl.style.opacity = opacity.toString();
                 buildingContainerEl.style.pointerEvents = currentScroll > fadeOutEnd ? 'none' : 'auto';
+
+                // ── Per-slide parallax depth ──
+                slides.forEach((slide, i) => {
+                    const slideDepth = (i + 1) * 0.03;
+                    const slideY = currentScroll * slideDepth * -0.5;
+                    slide.style.transform = slide.classList.contains('visible')
+                        ? `translateY(${slideY}px) translateZ(0)`
+                        : `translateY(30px) translateZ(0)`;
+                });
             }
         }
 
