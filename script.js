@@ -154,9 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll('.fade-element').forEach(el => fadeObserver.observe(el));
 
-    // ── SCROLL HERO — slide per scroll + zoom clădire ──────
+    // ── 3D SMOOTH SCROLL HERO ──────────────────────────────────
     const heroImgEl = document.getElementById('hero-img');
-    const buildingContainerEl = document.querySelector('.building-container');
+    const buildingContainerEl = document.querySelector('.hero-layer--building');
     const slides = document.querySelectorAll('.hero-slide');
 
     // Intersection Observer - fiecare slide apare când intră în viewport
@@ -172,56 +172,80 @@ document.addEventListener("DOMContentLoaded", () => {
         slides.forEach(slide => slideObserver.observe(slide));
     }
 
-    // Zoom clădire cu vârful mereu vizibil pe toată durata hero
+    // 3D scroll animation with requestAnimationFrame
     if (heroImgEl) {
-        // Calculează înălțimea totală a hero-ului
-        // Slide 1 = 100vh, restul = 50vh
         const totalHeroHeight = window.innerHeight + (slides.length - 1) * (window.innerHeight * 0.5);
-        const minZoom = 1.1; // Scara inițială: 1.1
-        const maxZoom = 1.6; // Zoom maxim: 1.6 (efect mai dramatic)
+        let currentScroll = 0;
+        let targetScroll = 0;
+        let rafId = null;
+        const lerp = (start, end, factor) => start + (end - start) * factor;
 
-        // Easing function pentru transition mai smooth
-        function easeOutQuad(t) {
-            return t * (2 - t);
-        }
+        // Smooth interpolation factor (lower = smoother/slower, higher = snappier)
+        const smoothFactor = 0.08;
 
         window.addEventListener('scroll', () => {
-            const scrollVal = window.scrollY;
+            targetScroll = window.scrollY;
+            if (!rafId) {
+                rafId = requestAnimationFrame(animateHero);
+            }
+        }, { passive: true });
 
-            // Calculează progresul în procente în secțiunea hero (0 - 1)
-            const heroProgress = Math.min(scrollVal / totalHeroHeight, 1);
+        function animateHero() {
+            // Lerp toward target for buttery smoothness
+            currentScroll = lerp(currentScroll, targetScroll, smoothFactor);
 
-            // Aplică easing pentru tranziție mai fluidă
-            const easedProgress = easeOutQuad(heroProgress);
+            // Stop animating when close enough (avoid infinite loop)
+            if (Math.abs(currentScroll - targetScroll) < 0.5) {
+                currentScroll = targetScroll;
+                rafId = null;
+            } else {
+                rafId = requestAnimationFrame(animateHero);
+            }
 
-            // Calculează scala: de la 1.1 la 1.6, cu vârful rămânând vizibil (transform-origin: top center)
-            const scale = minZoom + (easedProgress * (maxZoom - minZoom));
-            heroImgEl.style.transform = `scale(${scale})`;
+            // Progress through hero section (0 → 1)
+            const progress = Math.min(currentScroll / totalHeroHeight, 1);
 
-            // Ascunde clădirea după ultimul slide cu tranziție smooth
+            // ── Building 3D transforms ──
+            // Scale: 1.0 → 1.35 (zoom in as you scroll)
+            const scale = 1 + progress * 0.35;
+
+            // RotateX: 0° → -6° (subtle tilt forward, like looking down at building)
+            const rotateX = progress * -6;
+
+            // RotateY: 0° → 3° (very subtle side rotation)
+            const rotateY = progress * 3;
+
+            // TranslateZ: 0 → 80px (push toward viewer)
+            const translateZ = progress * 80;
+
+            // TranslateY: 0 → -30px (slight upward drift)
+            const translateY = progress * -30;
+
+            heroImgEl.style.transform =
+                `scale(${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px) translateY(${translateY}px)`;
+
+            // ── Fade out building after hero ──
             if (buildingContainerEl) {
-                const fadeOutStart = totalHeroHeight * 0.85; // Incepe să dispară la 85%
-                const fadeOutEnd = totalHeroHeight * 1.1;
+                const fadeOutStart = totalHeroHeight * 0.75;
+                const fadeOutEnd = totalHeroHeight * 1.05;
 
                 let opacity = 1;
-                if (scrollVal > fadeOutStart) {
-                    opacity = Math.max(0, 1 - (scrollVal - fadeOutStart) / (fadeOutEnd - fadeOutStart));
+                if (currentScroll > fadeOutStart) {
+                    opacity = Math.max(0, 1 - (currentScroll - fadeOutStart) / (fadeOutEnd - fadeOutStart));
                 }
 
                 buildingContainerEl.style.opacity = opacity.toString();
-
-                if (scrollVal > fadeOutEnd) {
-                    buildingContainerEl.style.pointerEvents = 'none';
-                } else {
-                    buildingContainerEl.style.pointerEvents = 'auto';
-                }
+                buildingContainerEl.style.pointerEvents = currentScroll > fadeOutEnd ? 'none' : 'auto';
             }
-        }, { passive: true });
+        }
+
+        // Kick off initial frame
+        targetScroll = window.scrollY;
+        currentScroll = targetScroll;
+        requestAnimationFrame(animateHero);
     }
 
-    // Intersection Observer pentru secțiunile hero
-    // Intersection Observer pentru secțiunile hero
-    // Intersection Observer pentru secțiunile hero
+    // Intersection Observer for hero sections
     const heroObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
