@@ -174,7 +174,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3D scroll animation with requestAnimationFrame
     if (heroImgEl) {
-        const totalHeroHeight = window.innerHeight + (slides.length - 1) * (window.innerHeight * 0.5);
+        let totalHeroHeight = window.innerHeight + (slides.length - 1) * (window.innerHeight * 0.5);
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        window.addEventListener('resize', () => {
+            totalHeroHeight = window.innerHeight + (slides.length - 1) * (window.innerHeight * 0.5);
+        }, { passive: true });
+
+        if (prefersReducedMotion) {
+            // Reduced: only fade out building, no 3D transforms
+            window.addEventListener('scroll', () => {
+                const scrollVal = window.scrollY;
+                if (buildingContainerEl) {
+                    const fadeOutStart = totalHeroHeight * 0.75;
+                    const fadeOutEnd = totalHeroHeight * 1.05;
+                    let opacity = 1;
+                    if (scrollVal > fadeOutStart) {
+                        opacity = Math.max(0, 1 - (scrollVal - fadeOutStart) / (fadeOutEnd - fadeOutStart));
+                    }
+                    buildingContainerEl.style.opacity = opacity.toString();
+                    buildingContainerEl.style.pointerEvents = scrollVal > fadeOutEnd ? 'none' : 'auto';
+                }
+            }, { passive: true });
+        } else {
         let currentScroll = 0;
         let targetScroll = 0;
         let rafId = null;
@@ -252,6 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
         targetScroll = window.scrollY;
         currentScroll = targetScroll;
         requestAnimationFrame(animateHero);
+        } // end else (not reduced motion)
     }
 
     // Intersection Observer for hero sections

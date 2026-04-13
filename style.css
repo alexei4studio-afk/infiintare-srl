@@ -2063,6 +2063,22 @@ a {
   font-size: 0.78rem;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  #hero-img {
+    transform: scale(1) !important;
+  }
+
+  .hero-layer--building {
+    opacity: 1 !important;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════
    MOBIL — 3D HERO
 ═══════════════════════════════════════════════════════════ */
