@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
   font-size: 16px;
 }
 
@@ -1827,13 +1828,18 @@ a {
     display: none;
   }
 
-  .nav-links li:nth-child(3) {
-    display: block;
-  }
-
-  .nav-links li:nth-child(3) a {
-    font-size: 0.8rem;
-    padding: 0.5rem 0;
+  .mobile-blog-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--accent-warm);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border: 1.5px solid var(--accent-warm);
+    border-radius: 50px;
   }
 
   h1 {
@@ -1887,123 +1893,84 @@ a {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HERO — 3D SMOOTH SCROLL
+   HERO — FULL-SCREEN 3D SMOOTH SCROLL
 ═══════════════════════════════════════════════════════════ */
 
-/* 1. SCENE — the 3D viewport */
 .hero-scene {
   position: relative;
   z-index: 1;
   perspective: 1200px;
   perspective-origin: 50% 40%;
-  overflow: hidden;
 }
 
-/* 2. 3D CONTAINER — preserves child depth */
-.hero-3d-container {
-  position: relative;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-/* 3. LAYERS */
-.hero-layer {
-  position: relative;
-  width: 100%;
-}
-
-/* Building layer — fixed behind content, in 3D depth */
-.hero-layer--building {
+.hero-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1;
   pointer-events: none;
   background-color: var(--bg);
-  will-change: transform, opacity;
-  transform: translateZ(0px);
-}
-
-.hero-layer--building::after {
-  content: '';
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%) scaleX(1);
-  width: 40%;
-  height: 30px;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.06) 0%, transparent 70%);
-  pointer-events: none;
-  will-change: transform;
+  will-change: opacity;
+  overflow: hidden;
 }
 
 #hero-img {
+  width: 100%;
   height: 100vh;
   object-fit: contain;
-  mix-blend-mode: multiply;
-  opacity: 0.9;
+  object-position: center top;
+  opacity: 0.85;
   will-change: transform;
-  transform-origin: center center;
-  transform: scale(1) rotateX(0deg) rotateY(0deg);
+  transform-origin: center top;
   transition: none;
 }
 
-/* Content layer — scrolls over building */
-.hero-layer--content {
-  position: relative;
-  z-index: 10;
-}
-
-/* 4. SCROLLER */
 .content-scroller {
   position: relative;
   z-index: 10;
 }
 
-/* 5. SLIDES */
 .hero-slide {
-  min-height: 55vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 8%;
+  padding: 0 1.2rem;
   opacity: 0;
-  transform: translateY(30px) translateZ(0);
+  transform: translateY(30px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  scroll-snap-align: start;
 }
 
 #slide-1 {
-  min-height: 80vh;
-  padding-top: 80px;
+  min-height: 100vh;
+  padding-top: 90px;
+  justify-content: flex-start;
 }
 
 #slide-2 {
-  min-height: 45vh;
+  min-height: 100vh;
 }
 
 #slide-3 {
-  min-height: 40vh;
+  min-height: 100vh;
 }
 
 #slide-4 {
-  min-height: 35vh;
+  min-height: 100vh;
   padding-bottom: 3rem;
 }
 
 .hero-slide.visible {
   opacity: 1;
-  transform: translateY(0) translateZ(0);
+  transform: translateY(0);
 }
 
-/* 6. TIPOGRAFIE HERO */
 .hero-slide h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -2032,7 +1999,6 @@ a {
   border: 1px solid var(--border);
 }
 
-/* 7. BUTONUL CTA */
 .btn-pill {
   background: var(--ink) !important;
   color: #fff !important;
@@ -2063,6 +2029,11 @@ a {
   font-size: 0.78rem;
 }
 
+/* Mobile blog button */
+.mobile-blog-btn {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-slide {
     opacity: 1;
@@ -2071,26 +2042,24 @@ a {
   }
 
   #hero-img {
-    transform: scale(1) !important;
+    transform: none !important;
   }
 
-  .hero-layer--building {
+  .hero-bg {
     opacity: 1 !important;
   }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   MOBIL — 3D HERO
+   MOBIL — HERO
 ═══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-
   .hero-scene {
     perspective: 800px;
   }
 
   #hero-img {
-    height: 65vh;
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   .hero-slide {

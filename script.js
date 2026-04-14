@@ -156,10 +156,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ── 3D SMOOTH SCROLL HERO ──────────────────────────────────
     const heroImgEl = document.getElementById('hero-img');
-    const buildingContainerEl = document.querySelector('.hero-layer--building');
+    const heroBg = document.getElementById('hero-bg');
     const slides = document.querySelectorAll('.hero-slide');
 
-    // Intersection Observer - fiecare slide apare când intră în viewport
+    // Intersection Observer — each slide fades in when visible
     if (slides.length) {
         const slideObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -168,12 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }, { threshold: 0.4 });
-
         slides.forEach(slide => slideObserver.observe(slide));
     }
 
-    // 3D scroll animation with requestAnimationFrame
-    if (heroImgEl) {
+    // 3D scroll animation with lerp smoothing
+    if (heroImgEl && heroBg) {
         let totalHeroHeight = window.innerHeight + (slides.length - 1) * (window.innerHeight * 0.5);
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -182,113 +181,74 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
 
         if (prefersReducedMotion) {
-            // Reduced: only fade out building, no 3D transforms
             window.addEventListener('scroll', () => {
                 const scrollVal = window.scrollY;
-                if (buildingContainerEl) {
-                    const fadeOutStart = totalHeroHeight * 0.75;
-                    const fadeOutEnd = totalHeroHeight * 1.05;
-                    let opacity = 1;
-                    if (scrollVal > fadeOutStart) {
-                        opacity = Math.max(0, 1 - (scrollVal - fadeOutStart) / (fadeOutEnd - fadeOutStart));
-                    }
-                    buildingContainerEl.style.opacity = opacity.toString();
-                    buildingContainerEl.style.pointerEvents = scrollVal > fadeOutEnd ? 'none' : 'auto';
-                }
-            }, { passive: true });
-        } else {
-        let currentScroll = 0;
-        let targetScroll = 0;
-        let rafId = null;
-        const lerp = (start, end, factor) => start + (end - start) * factor;
-
-        // Smooth interpolation factor (lower = smoother/slower, higher = snappier)
-        const smoothFactor = 0.08;
-
-        window.addEventListener('scroll', () => {
-            targetScroll = window.scrollY;
-            if (!rafId) {
-                rafId = requestAnimationFrame(animateHero);
-            }
-        }, { passive: true });
-
-        function animateHero() {
-            // Lerp toward target for buttery smoothness
-            currentScroll = lerp(currentScroll, targetScroll, smoothFactor);
-
-            // Stop animating when close enough (avoid infinite loop)
-            if (Math.abs(currentScroll - targetScroll) < 0.5) {
-                currentScroll = targetScroll;
-                rafId = null;
-            } else {
-                rafId = requestAnimationFrame(animateHero);
-            }
-
-            // Progress through hero section (0 → 1)
-            const progress = Math.min(currentScroll / totalHeroHeight, 1);
-
-            // ── Building 3D transforms ──
-            // Scale: 1.0 → 1.35 (zoom in as you scroll)
-            const scale = 1 + progress * 0.35;
-
-            // RotateX: 0° → -6° (subtle tilt forward, like looking down at building)
-            const rotateX = progress * -6;
-
-            // RotateY: 0° → 3° (very subtle side rotation)
-            const rotateY = progress * 3;
-
-            // TranslateZ: 0 → 80px (push toward viewer)
-            const translateZ = progress * 80;
-
-            // TranslateY: 0 → -30px (slight upward drift)
-            const translateY = progress * -30;
-
-            heroImgEl.style.transform =
-                `scale(${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px) translateY(${translateY}px)`;
-
-            // ── Fade out building after hero ──
-            if (buildingContainerEl) {
                 const fadeOutStart = totalHeroHeight * 0.75;
                 const fadeOutEnd = totalHeroHeight * 1.05;
+                let opacity = 1;
+                if (scrollVal > fadeOutStart) {
+                    opacity = Math.max(0, 1 - (scrollVal - fadeOutStart) / (fadeOutEnd - fadeOutStart));
+                }
+                heroBg.style.opacity = opacity.toString();
+            }, { passive: true });
+        } else {
+            let currentScroll = 0;
+            let targetScroll = 0;
+            let rafId = null;
+            const lerp = (start, end, factor) => start + (end - start) * factor;
+            const smoothFactor = 0.08;
 
+            window.addEventListener('scroll', () => {
+                targetScroll = window.scrollY;
+                if (!rafId) rafId = requestAnimationFrame(animateHero);
+            }, { passive: true });
+
+            function animateHero() {
+                currentScroll = lerp(currentScroll, targetScroll, smoothFactor);
+                if (Math.abs(currentScroll - targetScroll) < 0.5) {
+                    currentScroll = targetScroll;
+                    rafId = null;
+                } else {
+                    rafId = requestAnimationFrame(animateHero);
+                }
+
+                const progress = Math.min(currentScroll / totalHeroHeight, 1);
+
+                // 3D transforms on the hero image
+                const scale = 1 + progress * 0.35;
+                const rotateX = progress * -6;
+                const rotateY = progress * 3;
+                const translateZ = progress * 80;
+                const translateY = progress * -80;
+
+                heroImgEl.style.transform =
+                    `scale(${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px) translateY(${translateY}px)`;
+
+                // Fade out building after hero
+                const fadeOutStart = totalHeroHeight * 0.75;
+                const fadeOutEnd = totalHeroHeight * 1.05;
                 let opacity = 1;
                 if (currentScroll > fadeOutStart) {
                     opacity = Math.max(0, 1 - (currentScroll - fadeOutStart) / (fadeOutEnd - fadeOutStart));
                 }
+                heroBg.style.opacity = opacity.toString();
+                heroBg.style.pointerEvents = currentScroll > fadeOutEnd ? 'none' : 'auto';
 
-                buildingContainerEl.style.opacity = opacity.toString();
-                buildingContainerEl.style.pointerEvents = currentScroll > fadeOutEnd ? 'none' : 'auto';
-
-                // ── Per-slide parallax depth ──
+                // Per-slide parallax depth
                 slides.forEach((slide, i) => {
                     const slideDepth = (i + 1) * 0.03;
                     const slideY = currentScroll * slideDepth * -0.5;
                     slide.style.transform = slide.classList.contains('visible')
-                        ? `translateY(${slideY}px) translateZ(0)`
-                        : `translateY(30px) translateZ(0)`;
+                        ? `translateY(${slideY}px)`
+                        : `translateY(30px)`;
                 });
             }
+
+            targetScroll = window.scrollY;
+            currentScroll = targetScroll;
+            requestAnimationFrame(animateHero);
         }
-
-        // Kick off initial frame
-        targetScroll = window.scrollY;
-        currentScroll = targetScroll;
-        requestAnimationFrame(animateHero);
-        } // end else (not reduced motion)
     }
-
-    // Intersection Observer for hero sections
-    const heroObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.4 });
-
-    document.querySelectorAll('.content-scroller section').forEach(section => {
-        heroObserver.observe(section);
-    });
 
     // ── CHATBOT — buton înapoi la meniu ──────────────────────
     // ── CHATBOT — buton înapoi la meniu ──────────────────────
