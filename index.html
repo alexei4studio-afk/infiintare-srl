@@ -37,32 +37,69 @@
 
 <body>
 
-  <!-- HERO -->
-  <div class="hero-scene" id="hero-scene">
-    <div class="hero-bg" id="hero-bg">
-      <img src="images/cladire.png" id="hero-img" alt="Înființare Firmă">
+  <!-- VIDEO HERO -->
+  <section class="vh" id="hero-scene" aria-label="StartFIRMĂ — Înființare Firmă Online">
+
+    <!-- Background video -->
+    <div class="vh__video-wrap">
+      <video class="vh__video" autoplay muted loop playsinline preload="auto"
+             poster="images/car1.png" aria-hidden="true">
+        <source src="videos/hero.mp4?v=2" type="video/mp4">
+      </video>
     </div>
-    <div class="content-scroller">
-      <section class="hero-slide" id="slide-1">
-        <h1>ÎNFIINȚARE <span class="gold">FIRMĂ</span> ONLINE</h1>
-      </section>
-      <section class="hero-slide" id="slide-2">
-        <h1>SRL. SRL-D. PFA.</h1>
-      </section>
-      <section class="hero-slide" id="slide-3">
-        <p class="sub-text">DOSAR COMPLET ÎN 5 MINUTE.</p>
-      </section>
-      <section class="hero-slide" id="slide-4">
-        <a href="#app" class="btn-pill">GENEREAZĂ DOSAR ↗</a>
-      </section>
+
+    <!-- Dark gradient overlay -->
+    <div class="vh__overlay" aria-hidden="true"></div>
+
+    <!-- Centered content -->
+    <div class="vh__content">
+      <p class="vh__badge">De la 149 RON &nbsp;·&nbsp; 5 minute &nbsp;·&nbsp; 100% Digital</p>
+      <h1 class="vh__title">Înființare<em class="vh__title-em">Firmă Online</em></h1>
+      <p class="vh__subtitle">Generează dosarul complet pentru ONRC în câteva minute.<br>SRL, SRL-D, PFA — acte valide juridic, 100% digital.</p>
+      <div class="vh__ctas">
+        <a href="#app" class="vh__btn vh__btn--primary" onclick="resetToStep1?.(); return false;">Generează Dosar&nbsp;&#8599;</a>
+        <a href="#pasi" class="vh__btn vh__btn--secondary">Cum funcționează&nbsp;&#8594;</a>
+      </div>
+      <div class="vh__stats">
+        <div class="vh__stat">
+          <span class="vh__stat-num">5500+</span>
+          <span class="vh__stat-label">firme înregistrate</span>
+        </div>
+        <div class="vh__stat-divider" aria-hidden="true"></div>
+        <div class="vh__stat">
+          <span class="vh__stat-num">5 min</span>
+          <span class="vh__stat-label">dosar complet</span>
+        </div>
+        <div class="vh__stat-divider" aria-hidden="true"></div>
+        <div class="vh__stat">
+          <span class="vh__stat-num">100%</span>
+          <span class="vh__stat-label">digital</span>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <!-- Scroll indicator -->
+    <div class="vh__scroll-indicator" aria-hidden="true">
+      <span class="vh__scroll-line"></span>
+      <span class="vh__scroll-text">Scroll</span>
+    </div>
+
+  </section><!-- /vh -->
 
   <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar navbar--video" id="navbar">
     <div class="container nav-container">
       <a href="index.html" class="logo">
-        <i class="ri-building-2-line"></i> Start<span>FIRMĂ</span>
+        <svg width="26" height="22" viewBox="0 0 26 22" fill="none" aria-hidden="true" style="flex-shrink:0">
+          <!-- 3 ascending bars -->
+          <rect x="1" y="14" width="6" height="7" rx="0.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <rect x="10" y="8" width="6" height="13" rx="0.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <rect x="19" y="2" width="6" height="19" rx="0.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <!-- Upward trend arrow in gold -->
+          <path d="M4 14 L13 8 L22 2" stroke="#c8a96e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 2 L22 2 L22 6" stroke="#c8a96e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Start<span>FIRMĂ</span>
       </a>
       <ul class="nav-links">
         <li><a href="#avantaje">Avantaje</a></li>
@@ -70,7 +107,7 @@
         <li><a href="blog/index.html" style="color: var(--accent-warm); font-weight: bold;">Blog</a></li>
         <li><a href="#app" class="btn-primary-small" onclick="resetToStep1(); return false;">Generează Dosar ↗</a></li>
       </ul>
-      <a href="blog/index.html" class="mobile-blog-btn"><i class="ri-article-line"></i> Blog</a>
+      <a href="blog/index.html" class="mobile-cta-btn"><i class="ri-article-line"></i>&nbsp;Blog</a>
     </div>
   </nav>
 

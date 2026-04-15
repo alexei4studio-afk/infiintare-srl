@@ -154,101 +154,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll('.fade-element').forEach(el => fadeObserver.observe(el));
 
-    // ── 3D SMOOTH SCROLL HERO ──────────────────────────────────
-    const heroImgEl = document.getElementById('hero-img');
-    const heroBg = document.getElementById('hero-bg');
-    const slides = document.querySelectorAll('.hero-slide');
+    // ── VIDEO HERO INIT ──────────────────────────────────────
+    (function () {
+        const hero    = document.getElementById('hero-scene');
+        if (!hero) return;
 
-    // Intersection Observer — each slide fades in when visible
-    if (slides.length) {
-        const slideObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.4 });
-        slides.forEach(slide => slideObserver.observe(slide));
-    }
+        const content   = hero.querySelector('.vh__content');
+        const scrollInd = hero.querySelector('.vh__scroll-indicator');
+        const navbar    = document.getElementById('navbar');
 
-    // 3D scroll animation with lerp smoothing
-    if (heroImgEl && heroBg) {
-        let totalHeroHeight = window.innerHeight + (slides.length - 1) * (window.innerHeight * 0.5);
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        window.addEventListener('resize', () => {
-            totalHeroHeight = window.innerHeight + (slides.length - 1) * (window.innerHeight * 0.5);
-        }, { passive: true });
-
-        if (prefersReducedMotion) {
-            window.addEventListener('scroll', () => {
-                const scrollVal = window.scrollY;
-                const fadeOutStart = totalHeroHeight * 0.75;
-                const fadeOutEnd = totalHeroHeight * 1.05;
-                let opacity = 1;
-                if (scrollVal > fadeOutStart) {
-                    opacity = Math.max(0, 1 - (scrollVal - fadeOutStart) / (fadeOutEnd - fadeOutStart));
-                }
-                heroBg.style.opacity = opacity.toString();
-            }, { passive: true });
-        } else {
-            let currentScroll = 0;
-            let targetScroll = 0;
-            let rafId = null;
-            const lerp = (start, end, factor) => start + (end - start) * factor;
-            const smoothFactor = 0.08;
-
-            window.addEventListener('scroll', () => {
-                targetScroll = window.scrollY;
-                if (!rafId) rafId = requestAnimationFrame(animateHero);
-            }, { passive: true });
-
-            function animateHero() {
-                currentScroll = lerp(currentScroll, targetScroll, smoothFactor);
-                if (Math.abs(currentScroll - targetScroll) < 0.5) {
-                    currentScroll = targetScroll;
-                    rafId = null;
-                } else {
-                    rafId = requestAnimationFrame(animateHero);
-                }
-
-                const progress = Math.min(currentScroll / totalHeroHeight, 1);
-
-                // 3D transforms on the hero image
-                const scale = 1 + progress * 0.35;
-                const rotateX = progress * -6;
-                const rotateY = progress * 3;
-                const translateZ = progress * 80;
-                const translateY = progress * -80;
-
-                heroImgEl.style.transform =
-                    `scale(${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px) translateY(${translateY}px)`;
-
-                // Fade out building after hero
-                const fadeOutStart = totalHeroHeight * 0.75;
-                const fadeOutEnd = totalHeroHeight * 1.05;
-                let opacity = 1;
-                if (currentScroll > fadeOutStart) {
-                    opacity = Math.max(0, 1 - (currentScroll - fadeOutStart) / (fadeOutEnd - fadeOutStart));
-                }
-                heroBg.style.opacity = opacity.toString();
-                heroBg.style.pointerEvents = currentScroll > fadeOutEnd ? 'none' : 'auto';
-
-                // Per-slide parallax depth
-                slides.forEach((slide, i) => {
-                    const slideDepth = (i + 1) * 0.03;
-                    const slideY = currentScroll * slideDepth * -0.5;
-                    slide.style.transform = slide.classList.contains('visible')
-                        ? `translateY(${slideY}px)`
-                        : `translateY(30px)`;
-                });
-            }
-
-            targetScroll = window.scrollY;
-            currentScroll = targetScroll;
-            requestAnimationFrame(animateHero);
+        // Fade-in content on load (double rAF ensures CSS transition fires)
+        if (content) {
+            requestAnimationFrame(() => requestAnimationFrame(() =>
+                content.classList.add('vh__content--visible')
+            ));
         }
-    }
+
+        function onScroll() {
+            const pastHero = window.scrollY > window.innerHeight * 0.25;
+            scrollInd?.classList.toggle('vh__scroll-indicator--hidden', pastHero);
+            if (navbar) {
+                navbar.classList.toggle('navbar--video', !pastHero);
+                navbar.classList.toggle('scrolled', pastHero);
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // set correct state on init
+    })();
 
     // ── CHATBOT — buton înapoi la meniu ──────────────────────
     // ── CHATBOT — buton înapoi la meniu ──────────────────────
@@ -260,15 +192,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // 1. Navigation Sticky Background on Scroll
-    const navbar = document.querySelector('.navbar');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    // Handled by video hero IIFE above on index.html.
+    // Fallback for non-hero pages (blog, gdpr, termeni, etc.)
+    (function () {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar || document.getElementById('hero-scene')) return;
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+    })();
 
     // 2. Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
