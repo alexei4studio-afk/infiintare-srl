@@ -129,10 +129,10 @@ a {
 }
 
 /* ── Navbar over video hero — white text mode ── */
-.navbar--video .logo { color: #ffffff; }
+.navbar--video .logo { color: #0d0d0d; }
 .navbar--video .logo span { color: #c8a96e; }
-.navbar--video .nav-links a { color: rgba(255, 255, 255, 0.78); }
-.navbar--video .nav-links a:hover { color: #ffffff; }
+.navbar--video .nav-links a { color: rgba(13, 13, 13, 0.78); }
+.navbar--video .nav-links a:hover { color: #0d0d0d; }
 .navbar--video .mobile-cta-btn {
   background: #c8a96e;
   color: #0d0d0d;
@@ -1964,11 +1964,6 @@ a {
   text-align: center;
   padding: 3rem clamp(1.5rem, 5vw, 4rem);
   max-width: 900px;
-  background: rgba(5, 4, 2, 0.52);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
@@ -2002,7 +1997,7 @@ a {
   font-size: clamp(3rem, 7.5vw, 6.5rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: #0d0d0d;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
@@ -2023,7 +2018,7 @@ a {
   font-family: 'DM Sans', sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(13, 13, 13, 0.82);
   line-height: 1.65;
   max-width: 600px;
   margin: 0 auto 2.4rem;
@@ -2064,12 +2059,12 @@ a {
 
 .vh__btn--secondary {
   background: transparent;
-  color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.55);
+  color: #0d0d0d;
+  border: 2px solid rgba(13, 13, 13, 0.55);
 }
 .vh__btn--secondary:hover {
-  border-color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(13, 13, 13, 0.9);
+  background: rgba(13, 13, 13, 0.08);
   transform: translateY(-2px);
 }
 
@@ -2091,7 +2086,7 @@ a {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: clamp(1.3rem, 2.5vw, 1.9rem);
-  color: #ffffff;
+  color: #0d0d0d;
   line-height: 1;
 }
 
@@ -2099,7 +2094,7 @@ a {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(13, 13, 13, 0.65);
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
@@ -2107,7 +2102,7 @@ a {
 .vh__stat-divider {
   width: 1px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(13, 13, 13, 0.2);
   flex-shrink: 0;
 }
 
@@ -2163,7 +2158,7 @@ a {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(13, 13, 13, 0.4);
 }
 
 /* ── PLACEHOLDER for removed .cc-hero (prevents layout jump if any stray refs) ── */
